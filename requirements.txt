@@ -1,0 +1,15 @@
+python:[
+pytesseract,
+pypdf2,
+fastapi,
+uvcorn,
+pymupdf,
+fitz,
+prisma,
+google,
+poppler,
+]
+
+windows:[
+    tesseract-ocr
+]
