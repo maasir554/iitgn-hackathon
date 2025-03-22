@@ -33,7 +33,8 @@ def pdfToList (pdf, start=0, end=-1):
   return ans
 
 def getGeminiResponse(query):
-    client = genai.Client(api_key="AIzaSyC_eBiiJRNneilrj30VnwsK2JkhoIG6Jlk")
+    # client = genai.Client(api_key="AIzaSyC_eBiiJRNneilrj30VnwsK2JkhoIG6Jlk")
+    client = genai.Client(api_key="AIzaSyCJm4mCQs_ZwfOLNja1Kn_O3G97c8NDBq4")
 
     response = client.models.generate_content(
     model="gemini-2.0-flash",
@@ -44,7 +45,7 @@ def getGeminiResponse(query):
 
     return response.text.replace("```json", "").replace("```", "")
 
-async def pushTablesInSequence(pdf, start, end):
+async def pushTablesInSequence(pdf, start, end, pdfLink):
     
     db = Prisma()
     
@@ -100,7 +101,7 @@ async def pushTablesInSequence(pdf, start, end):
             "description": description,
             "keywords": keywords,
             "table_json": tableData, 
-            "docOfOrigin": "document-1"
+            "docOfOrigin": pdfLink
         }
     
         pushed = await db.tablerecord.create(data = data_to_push)

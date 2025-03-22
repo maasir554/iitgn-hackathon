@@ -36,7 +36,7 @@ async def process_json(request: Request):
         if 'endBefore' not in data:
             data['endBefore'] = -1
 
-        update = await pushTablesInSequence(pdf_bin, int(data['startFrom']), int(data['endBefore']))
+        update = await pushTablesInSequence(pdf_bin, int(data['startFrom']), int(data['endBefore']), data['pdfLink'])
 
         return {
             "message": "All pages pushed successfully to database.",

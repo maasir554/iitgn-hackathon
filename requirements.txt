@@ -10,6 +10,3 @@ google,
 poppler,
 ]
 
-windows:[
-    tesseract-ocr
-]
