@@ -8,5 +8,8 @@ fitz,
 prisma,
 google,
 poppler,
-]
+],
 
+[
+    "start":"$ uvicorn rest-api:app --reload --port 5111"
+]
